@@ -7,7 +7,7 @@ export default function HelloWorld(){
 
     return (
         <div>
-            <img src="img/alam.png" width="100%" />
+            <img src="img/hellokitty.png" width="100%" />
             <h1>Hello World</h1>
             <p>Selamat Belajar ReactJs</p>
             <GreetingBinjai/>
