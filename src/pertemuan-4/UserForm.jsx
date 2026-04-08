@@ -9,7 +9,7 @@ export default function UserForm() {
         <InputField label="Email" type="email" placeholder="Silahkan ketik EMail..."/>
 
         <InputField label="Tanggal Lahir" type="date" />
-        <button className="w-full bg-pink-600 text-white p-2 rounded">
+        <button className="w-full bg-pink-500 text-white p-2 rounded">
           Simpan
         </button>
       </div>
