@@ -29,7 +29,7 @@ function GreetingBinjai(){
 
 function CobaCoba(){
     return(
-        <small>Coba Coba</small>
+        <small>Coba-Coba</small>
     )
 }
 
