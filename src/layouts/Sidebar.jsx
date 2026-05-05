@@ -1,9 +1,10 @@
 import { AiOutlineUser } from "react-icons/ai";
-import { AiTwotoneCustomerService } from "react-icons/ai";
-import { AiOutlineOrderedList } from "react-icons/ai";
+import { AiOutlineUnorderedList } from "react-icons/ai";
 import { MdSpaceDashboard } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
+
 export default function Sidebar() {
+
   const menuClass = ({ isActive }) =>
     `flex cursor-pointer items-center rounded-xl p-4  space-x-2
         ${
@@ -21,7 +22,7 @@ export default function Sidebar() {
       <div id="sidebar-logo" className="flex flex-col">
         <span
           id="logo-title"
-          className="font-poppins-extrabold text-[48px] text-gray-900"
+          className="font-poppins-exstrabold text-[48px] text-gray-900"
         >
           Sedap{" "}
           <b id="logo-dot" className="text-hijau">
@@ -37,41 +38,33 @@ export default function Sidebar() {
       <div id="sidebar-menu" className="mt-10">
         <ul id="menu-list" className="space-y-3">
           <li>
-            <NavLink id="menu-1" to="/" className={menuClass}>
+            <NavLink
+              id="menu-1"
+              to="/"
+              className={menuClass}
+            >
               <MdSpaceDashboard className="mr-4 text-xl" />
               Dashboard
             </NavLink>
           </li>
           <li>
-            <NavLink id="menu-2" to="/orders" className={menuClass}>
-              <AiOutlineOrderedList className="mr-4 text-xl" />
+            <NavLink
+              id="menu-2"
+              to="/orders"
+              className={menuClass}
+            >
+              <AiOutlineUnorderedList className="mr-4 text-xl" />
               Orders
             </NavLink>
           </li>
           <li>
-            <NavLink id="menu-3" to="/customers" className={menuClass}>
+            <NavLink
+              id="menu-3"
+              to="/customers"
+              className={menuClass}
+            >
               <AiOutlineUser className="mr-4 text-xl" />
               Customers
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/error-400" className={menuClass}>
-              <AiTwotoneCustomerService className="mr-4 text-xl" />
-              Error 400
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/error-401" className={menuClass}>
-              <AiTwotoneCustomerService className="mr-4 text-xl" />
-              Error 401
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/error-403" className={menuClass}>
-              <AiTwotoneCustomerService className="mr-4 text-xl" />
-              Error 403
             </NavLink>
           </li>
         </ul>
@@ -95,7 +88,7 @@ export default function Sidebar() {
           <img
             id="footer-avatar"
             className="w-20 rounded-full"
-            src="public\img\pp.jpg"
+            src="/public/img/pp.jpg"
           />
         </div>
         <span id="footer-brand" className="font-bold text-gray-400">

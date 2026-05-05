@@ -1,34 +1,30 @@
-export default function PageHeader({ title, breadcrumb, children }) {
+export default function PageHeader({ title, current, onAdd }) {
   return (
-    <div
-      id="pageheader-container"
-      className="flex items-center justify-between p-4"
-    >
-      <div id="pageheader-left" className="flex flex-col">
-        <span id="page-title" className="text-3xl font-semibold">
+    <div className="flex items-center justify-between p-4">
+      
+      {/* LEFT */}
+      <div className="flex flex-col">
+        <span className="text-2xl font-semibold">
           {title}
         </span>
 
-        <div
-          id="breadcrumb-links"
-          className="flex items-center font-medium space-x-2 mt-2"
-        >
-          {Array.isArray(breadcrumb) ? (
-            breadcrumb.map((item, index) => (
-              <span key={index} className="text-gray-500">
-                {item}
-                {index < breadcrumb.length - 1 && " / "}
-              </span>
-            ))
-          ) : (
-            <span className="text-gray-500">{breadcrumb}</span>
-          )}
+        <div className="text-gray-500">
+          <span>Dashboard</span>
+          <span className="mx-2">/</span>
+          <span>{current}</span>
         </div>
       </div>
 
-      <div id="action-button">
-        {children}
+      {/* RIGHT */}
+      <div>
+        <button
+          onClick={onAdd}
+          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg"
+        >
+          Add {title}
+        </button>
       </div>
+
     </div>
   );
 }
