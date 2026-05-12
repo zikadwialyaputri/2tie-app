@@ -1,113 +1,126 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import { BsFillExclamationDiamondFill } from "react-icons/bs";
+import { ImSpinner2 } from "react-icons/im";
+
 export default function Login() {
-    return (
-        <div>
-            {/* Heading */}
-            <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-800">
-                    Welcome Back 👋
-                </h2>
+  const navigate = useNavigate();
 
-                <p className="text-gray-500 mt-2 text-sm">
-                    Login untuk mengakses dashboard SmashBooking
-                </p>
-            </div>
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-            {/* Form */}
-            <form className="space-y-5">
+  const [dataForm, setDataForm] = useState({
+    email: "",
+    password: "",
+  });
 
-                {/* Email */}
-                <div>
-                    <label
-                        htmlFor="email"
-                        className="block text-sm font-semibold text-gray-700 mb-2"
-                    >
-                        Email Admin
-                    </label>
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
 
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Masukkan email anda"
-                        className="
-                            w-full px-4 py-3
-                            border border-gray-300
-                            rounded-xl
-                            bg-gray-50
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-blue-500
-                            focus:border-blue-500
-                            transition
-                        "
-                    />
-                </div>
+    setDataForm({
+      ...dataForm,
+      [name]: value,
+    });
+  };
 
-                {/* Password */}
-                <div>
-                    <div className="flex items-center justify-between mb-2">
-                        <label
-                            htmlFor="password"
-                            className="text-sm font-semibold text-gray-700"
-                        >
-                            Password
-                        </label>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-                        <a
-                            href="/forgot"
-                            className="text-sm text-blue-600 hover:text-blue-700"
-                        >
-                            Lupa Password?
-                        </a>
-                    </div>
+    setLoading(true);
+    setError("");
 
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Masukkan password"
-                        className="
-                            w-full px-4 py-3
-                            border border-gray-300
-                            rounded-xl
-                            bg-gray-50
-                            focus:outline-none
-                            focus:ring-2
-                            focus:ring-blue-500
-                            focus:border-blue-500
-                            transition
-                        "
-                    />
-                </div>
+    axios
+      .post("https://dummyjson.com/user/login", {
+        username: dataForm.email,
+        password: dataForm.password,
+      })
 
-                {/* Remember Me */}
-                <div className="flex items-center justify-between">
-                    <label className="flex items-center gap-2 text-sm text-gray-600">
-                        <input
-                            type="checkbox"
-                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                        />
-                        Remember me
-                    </label>
-                </div>
+      .then((response) => {
+        if (response.status !== 200) {
+          setError(response.data.message);
+          return;
+        }
 
-                {/* Button */}
-                <button
-                    type="submit"
-                    className="
-                        w-full py-3 rounded-xl
-                        bg-blue-600 hover:bg-blue-700
-                        text-white font-semibold
-                        transition duration-300
-                        shadow-md hover:shadow-lg
-                    "
-                >
-                    Login Dashboard
-                </button>
-            </form>
+        navigate("/");
+      })
 
-            {/* Footer Text */}
-            <p className="text-center text-sm text-gray-400 mt-6">
-                SmashBooking Management System
-            </p>
+      .catch((err) => {
+        if (err.response) {
+          setError(err.response.data.message || "An error occurred");
+        } else {
+          setError(err.message || "Unknown error");
+        }
+      })
+
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const errorInfo = error ? (
+    <div className="bg-red-200 mb-5 p-5 text-sm font-light text-gray-700 rounded flex items-center">
+      <BsFillExclamationDiamondFill className="text-red-600 me-2 text-lg" />
+      {error}
+    </div>
+  ) : null;
+
+  const loadingInfo = loading ? (
+    <div className="bg-gray-200 mb-5 p-5 text-sm rounded flex items-center">
+      <ImSpinner2 className="me-2 animate-spin" />
+      Mohon Tunggu...
+    </div>
+  ) : null;
+
+  return (
+    <div>
+      <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">
+        Welcome Back 👋
+      </h2>
+
+      {errorInfo}
+
+      {loadingInfo}
+
+      <form onSubmit={handleSubmit}>
+        <div className="mb-5">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Email Address
+          </label>
+
+          <input
+            type="text"
+            id="email"
+            name="email"
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400"
+            placeholder="you@example.com"
+          />
         </div>
-    );
+
+        <div className="mb-6">
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Password
+          </label>
+
+          <input
+            type="password"
+            id="password"
+            name="password"
+            onChange={handleChange}
+            className="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400"
+            placeholder="********"
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-green-500 hover:bg-green-600 text-black font-semibold py-2 px-4 rounded-lg transition duration-300"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  );
 }

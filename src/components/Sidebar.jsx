@@ -16,7 +16,7 @@ export default function Sidebar() {
   return (
     <div
       id="sidebar"
-      className="flex min-h-screen w-90 flex-col bg-white p-10 shadow-lg"
+      className="flex min-h-screen w-72 flex-col bg-white p-10 shadow-lg"
     >
       {/* Logo */}
       <div id="sidebar-logo" className="flex flex-col">
@@ -88,7 +88,7 @@ export default function Sidebar() {
           <img
             id="footer-avatar"
             className="w-20 rounded-full"
-            src="/public/img/pp.jpg"
+            src="/img/pp.jpg"
           />
         </div>
         <span id="footer-brand" className="font-bold text-gray-400">

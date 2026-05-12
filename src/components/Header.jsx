@@ -3,46 +3,63 @@ import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
 
 export default function Header() {
-    return (
-        <div id="header-container" className="flex justify-between items-center p-4">
-            {/* Search Bar */}
-            <div id="search-bar" className="relative w-full max-w-lg">
-                <input
-                    id="search-input"
-                    type="text"
-                    placeholder="Search Here..."
-                    className="border border-gray-100 p-2 pr-10 bg-white w-full max-w-lg rounded-md outline-none"
-                />
-                <FaSearch id="search-icon" className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-300" />
-            </div>
+  return (
+    <div
+      id="header-container"
+      className="w-full flex justify-between items-center gap-4 p-4 bg-white rounded-2xl shadow-sm"
+    >
+      {/* Search Bar */}
+      <div id="search-bar" className="relative flex-1 max-w-lg">
+        <input
+          id="search-input"
+          type="text"
+          placeholder="Search Here..."
+          className="w-full border border-gray-200 p-3 pr-10 rounded-xl outline-none focus:ring-2 focus:ring-green-400"
+        />
 
-            {/* Icon & Profile Section */}
-            <div id="icons-container" className="flex items-center space-x-4">
-                {/* Icons */}
-                <div id="notification-icon" className="relative p-3 bg-blue-100 rounded-2xl text-blue-500 cursor-pointer">
-                    <FaBell />
-                    <span id="notification-badge" className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-blue-200 rounded-full px-2 py-1 text-xs">50</span>
-                </div>
-                <div id="chart-icon" className="p-3 bg-blue-100 rounded-2xl cursor-pointer">
-                    <FcAreaChart />
-                </div>
-                <div id="settings-icon" className="p-3 bg-red-100 rounded-2xl text-red-500 cursor-pointer">
-                    <SlSettings />
-                </div>
-             
+        <FaSearch
+          id="search-icon"
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"
+        />
+      </div>
 
-                {/* Profile Section */}
-                <div id="profile-container" className="flex items-center space-x-4 border-l pl-4 border-gray-300">
-                    <span id="profile-text">
-                        Hello, <b>Zika Dwi Alya Putri</b>
-                    </span>
-                    <img
-                        id="profile-avatar"
-                        src="public\img\pp.jpg"
-                        className="w-10 h-10 rounded-full"
-                    />
-                </div>
-            </div>
+      {/* Right Section */}
+      <div
+        id="icons-container"
+        className="flex items-center gap-3 flex-shrink-0"
+      >
+        {/* Notification */}
+        <div className="relative p-3 bg-blue-100 rounded-2xl text-blue-500 cursor-pointer">
+          <FaBell />
+
+          <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-[10px] px-1.5 py-0.5 rounded-full">
+            50
+          </span>
         </div>
-    );
+
+        {/* Chart */}
+        <div className="p-3 bg-blue-100 rounded-2xl cursor-pointer">
+          <FcAreaChart />
+        </div>
+
+        {/* Settings */}
+        <div className="p-3 bg-red-100 rounded-2xl text-red-500 cursor-pointer">
+          <SlSettings />
+        </div>
+
+        {/* Profile */}
+        <div className="flex items-center gap-3 border-l border-gray-300 pl-4">
+          <span className="text-sm text-gray-700 whitespace-nowrap">
+            Hello, <b>Zika Dwi Alya Putri</b>
+          </span>
+
+          <img
+            src="/img/pp.jpg"
+            alt="profile"
+            className="w-10 h-10 rounded-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  );
 }

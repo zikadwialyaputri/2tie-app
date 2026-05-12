@@ -191,13 +191,13 @@ export default function Customers() {
             </select>
 
             <div className="flex gap-2 mt-2">
-              <button className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded">
+              <button className="flex-1 bg-green-600 hover:bg-green-700 text-black py-2 rounded">
                 Save
               </button>
               <button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="flex-1 bg-gray-400 hover:bg-gray-500 text-white py-2 rounded"
+                className="flex-1 bg-gray-400 hover:bg-gray-500 text-black py-2 rounded"
               >
                 Cancel
               </button>
