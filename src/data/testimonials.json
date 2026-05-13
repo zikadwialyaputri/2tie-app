@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Andi Pratama",
+    "role": "Food Blogger",
+    "rating": "4.9",
+    "avatar": "https://i.pravatar.cc/300?img=11",
+    "review": "Makanannya enak banget dan pengirimannya cepat. Sekarang jadi langganan pesan di Sedap setiap malam."
+  },
+  {
+    "id": 2,
+    "name": "Salsa Putri",
+    "role": "Content Creator",
+    "rating": "4.8",
+    "avatar": "https://i.pravatar.cc/300?img=32",
+    "review": "Aplikasinya mudah digunakan dan tampilannya modern banget. Banyak promo menarik juga setiap minggu."
+  },
+  {
+    "id": 3,
+    "name": "Bima Saputra",
+    "role": "Office Worker",
+    "rating": "4.7",
+    "avatar": "https://i.pravatar.cc/300?img=15",
+    "review": "Pilihan restorannya lengkap dan kualitas makanannya sangat bagus. Delivery juga selalu tepat waktu."
+  },
+  {
+    "id": 4,
+    "name": "Nadia Aulia",
+    "role": "Student",
+    "rating": "4.9",
+    "avatar": "https://i.pravatar.cc/300?img=47",
+    "review": "Pelayanannya sangat memuaskan dan drivernya ramah. Pesanan datang masih hangat dan fresh."
+  }
+]

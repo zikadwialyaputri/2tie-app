@@ -5,11 +5,12 @@ import { Routes, Route } from "react-router-dom";
 // Layouts
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
+import VisitorLayout from "./layouts/VisitorLayout";
 
 // Loading Component
 import Loading from "./components/Loading";
 
-// Lazy Pages
+// Main Pages
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Orders = React.lazy(() => import("./pages/Orders"));
 const Customers = React.lazy(() => import("./pages/Customers"));
@@ -19,6 +20,9 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
 const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
+
+// Visitor Page
+const VisitorPage = React.lazy(() => import("./pages/visitor/VisitorPage"));
 
 export default function App() {
   return (
@@ -36,6 +40,11 @@ export default function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="forgot" element={<Forgot />} />
+        </Route>
+
+        {/* Visitor Layout */}
+        <Route element={<VisitorLayout />}>
+          <Route path="visitor" element={<VisitorPage />} />
         </Route>
 
         {/* 404 */}
