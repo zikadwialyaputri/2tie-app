@@ -1,4 +1,5 @@
-import { MdFastfood } from "react-icons/md"; 
+import { BiNote } from "react-icons/bi"; 
+import { MdFastfood } from "react-icons/md";
 import { AiOutlineUser } from "react-icons/ai";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { MdSpaceDashboard } from "react-icons/md";
@@ -61,7 +62,12 @@ export default function Sidebar() {
               Products
             </NavLink>
           </li>
-
+          <li>
+            <NavLink id="menu-4" to="/notes" className={menuClass}>
+              <BiNote className="mr-4 text-xl"/>
+              Notes
+            </NavLink>
+          </li>
         </ul>
       </div>
 
