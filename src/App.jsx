@@ -6,7 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 import VisitorLayout from "./layouts/VisitorLayout";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 // Loading Component
 import Loading from "./components/Loading";
 
@@ -18,9 +18,6 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 const Products = React.lazy(() => import("./pages/Products"));
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
 const Notes = React.lazy(() => import("./pages/Notes"));
-
-
-
 
 // Auth Pages
 const Login = React.lazy(() => import("./pages/auth/Login"));
@@ -36,11 +33,18 @@ export default function App() {
       <Routes>
         {/* Main Layout */}
         <Route element={<MainLayout />}>
+          <Route
+            element={
+              <ProtectedRoute>
+                <MainLayout />
+              </ProtectedRoute>
+            }
+          ></Route>
           <Route path="/" element={<Dashboard />} />
           <Route path="orders" element={<Orders />} />
           <Route path="customers" element={<Customers />} />
           <Route path="products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductDetail />} /> 
+          <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="notes" element={<Notes />} />
         </Route>
 

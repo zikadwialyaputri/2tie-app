@@ -1,5 +1,4 @@
 import PageHeader from "../components/PageHeader";
-import products from "../data/product-sedap.json";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
